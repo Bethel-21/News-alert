@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Alert</title>
+</head>
+<body>
+    <h2>News Alert App</h2>
+
+    <form method="POST" action="/">
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Keywords (comma separated):</label><br>
+        <input type="text" name="keywords" required><br><br>
+
+        <button type="submit">Get News</button>
+    </form>
+
+    {% if results %}
+    <hr>
+    <h3>Filtered Articles:</h3>
+
+    {% for art in results %}
+        <p><strong>{{ art.title }}</strong><br>
+        <a href="{{ art.link }}" target="_blank">Source</a><br>
+        {{ art.description }}</p>
+        <hr>
+    {% endfor %}
+{% endif %}
+
+{% if sent == True %}
+<p style="color: green;">Email sent successfully!</p>
+{% elif sent == False %}
+<p style="color: red;">Failed to send email.</p>
+{% endif %}
+
+
+</body>
+</html>
