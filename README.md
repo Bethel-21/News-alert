@@ -27,6 +27,8 @@ Python 3.13+
 
 Flask
 
+SQLite
+
 Feedparser
 
 SMTP (Gmail)
